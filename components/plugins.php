@@ -90,7 +90,7 @@ function _shift8_remote_update_plugin( $plugin_file, $args ) {
 
     include_once ( ABSPATH . 'wp-admin/includes/admin.php' );
     require_once ( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
-    require_once WPRP_PLUGIN_PATH . 'inc/class-shift8-remote-plugin-upgrader-skin.php';
+    require_once SHIFT8_REMOTE_PLUGIN_PATH . 'inc/class-shift8-remote-plugin-upgrader-skin.php';
 
     // check for filesystem access
     if ( ! _shift8_remote_check_filesystem_access() )
@@ -229,7 +229,7 @@ function _shift8_remote_install_plugin( $plugin, $args = array() ) {
 	include_once ABSPATH . 'wp-admin/includes/upgrade.php';
 	include_once ABSPATH . 'wp-includes/update.php';
 	require_once ( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
-	require_once WPRP_PLUGIN_PATH . 'inc/class-shift8-remote-plugin-upgrader-skin.php';
+	require_once SHIFT8_REMOTE_PLUGIN_PATH . 'inc/class-shift8-remote-plugin-upgrader-skin.php';
 
 	// Access the plugins_api() helper function
 	include_once ABSPATH . 'wp-admin/includes/plugin-install.php';

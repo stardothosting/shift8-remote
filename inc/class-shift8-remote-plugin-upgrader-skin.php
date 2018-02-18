@@ -20,3 +20,5 @@ class SHIFT8_REMOTE_Plugin_Upgrader_Skin extends Plugin_Installer_Skin {
 	function header() { }
 
 	function footer() { }
+
+}
