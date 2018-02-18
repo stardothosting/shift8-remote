@@ -41,7 +41,7 @@ e.g.
 
 = I tested it on myself and its not working for me! =
 
-You should monitor the Jenkins log to see if it is able to hit the site. Also monitor the server logs of your Wordpress site to identify if any problems (i.e. curl) are happening.
+You should monitor the request log to see if it is able to hit the site. Also monitor the server logs of your Wordpress site to identify if any problems (i.e. curl) are happening.
 
 == Screenshots ==
 
