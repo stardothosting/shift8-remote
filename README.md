@@ -1,15 +1,14 @@
-# Shift8 Jenkins Integration
+# Shift8 Remote Management
 * Contributors: shift8
 * Donate link: https://www.shift8web.ca
-* Tags: jenkins, wordpress, wordpress automation, staging wordpress, staging, push, production push, jenkins push, wordpress deploy, wordpress build, build, deployment, deploy
+* Tags: api, management, wordpress, wordpress automation, manage wordpress, staging, wordpress deploy, wordpress build, build, deployment, deploy, manage multiple, multiple wordpress, wordpress api, api managements
 * Requires at least: 3.0.1
 * Tested up to: 4.9
-* Stable tag: 1.00
+* Stable tag: 1.03
 * License: GPLv3
 * License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Plugin that allows you to trigger a Jenkins hook straight from the Wordpress interface. This is intended for end-users to trigger a "push" for jenkins to push a staging site to production (for example). For full instructions and an in-dep
-th overview of how the plugin works, you can check out our detailed [blog post about this plugin](https://www.shift8web.ca/blog/wordpress-plugin-to-integrate-jenkins-build-api/).
+A wordpress plugin that implements an API framework for you to control and manage one or many Wordpress sites from a central location. The intention is to offer the ability to create your own web interface to interact with all of your Wordpress sites, allowing you to update core, update plugins, install plugins, deactivate plugins and many more actions. A web interface is the intended centralized platform however management systems like Ansible, Salt and Puppet can be used to interact with your Wordpress sites.
 
 ## Want to see the plugin in action?
 
@@ -21,7 +20,12 @@ You can view three example sites where this plugin is live :
 
 ## Features
 
-- Settings area to allow you to define the Jenkins push URL including the authentication key
+- Settings area to allow you to define the API key that authenticates and passes commands to the api
+- Ability to list all plugins
+- Ability to set wordpress options
+- Ability to update all plugins
+- Ability to update wordpress core
+- Ability to install/deinstall/activate/deactivate plugins
 
 ## Installation 
 
@@ -29,7 +33,7 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/shif8-jenkins` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/shift8-remote` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
 3. Navigate to the plugin settings page and define your settings
 

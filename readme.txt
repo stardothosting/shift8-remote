@@ -20,7 +20,12 @@ You can view three example sites where this plugin is live :
 
 == Features ==
 
-- Settings area to allow you to define the Jenkins push URL including the authentication key
+- Settings area to allow you to define the API key that authenticates and passes commands to the api
+- Ability to list all plugins
+- Ability to set wordpress options
+- Ability to update all plugins
+- Ability to update wordpress core
+- Ability to install/deinstall/activate/deactivate plugins
 
 == Installation ==
 
