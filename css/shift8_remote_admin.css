@@ -1,4 +1,4 @@
-.shift8-jenkins-button {
+.shift8-remote-button {
     background-color: #f44336; 
     border: none;
     color: white;
@@ -8,17 +8,17 @@
     display: inline-block;
     font-size: 16px;
 }
-.shift8-jenkins-button-container {
+.shift8-remote-button-container {
 	text-align:center;
 	margin:0 auto;
 }
-.shift8-jenkins-table input {
+.shift8-remote-table input {
     width:100%;
 }
-.shift8-jenkins-activity-log-container h3 {
+.shift8-remote-activity-log-container h3 {
     font-size:18px;
 }
-.shift8-jenkins-scrollabletextbox {
+.shift8-remote-scrollabletextbox {
     background-color: #fff;
     height:200px;
     width:40%;
@@ -26,6 +26,6 @@
     font-size: 82%;
     overflow:scroll;
 }
-.shift8-jenkins-scrollabletextbox li {
+.shift8-remote-scrollabletextbox li {
     font-weight:bold;
 }
