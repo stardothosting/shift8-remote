@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Admin welcome page
 if (!function_exists('shift8_main_page')) {
