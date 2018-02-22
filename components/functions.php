@@ -3,13 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Encryption key generation
 function shift8_remote_generate_api_key() {
-    //$cstrong = false;
-    $encryption_key = bin2hex(random_bytes(32));
-    /*$encryption_key = bin2hex(openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'), $cstrong));
-    // Fallback if no openssl
-    if (!$cstrong) {
-        $encryption_key = bin2hex(random_bytes(64));
-    }*/
+    $encryption_key = bin2hex(openssl_random_pseudo_bytes(32));
     return $encryption_key;
 }
 
