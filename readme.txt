@@ -4,7 +4,7 @@
 * Tags: api, management, wordpress, wordpress automation, manage wordpress, staging, wordpress deploy, wordpress build, build, deployment, deploy, manage multiple, multiple wordpress, wordpress api, api managements
 * Requires at least: 3.0.1
 * Tested up to: 4.9
-* Stable tag: 1.03
+* Stable tag: 1.00
 * License: GPLv3
 * License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
