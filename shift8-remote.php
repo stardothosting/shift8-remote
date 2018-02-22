@@ -8,6 +8,7 @@
  * Author URI: https://www.shift8web.ca
  * License: GPLv3
  */
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'SHIFT8_REMOTE_PLUGIN_SLUG', 'shift8-remote' );
 define( 'SHIFT8_REMOTE_PLUGIN_BASE',  plugin_basename(__FILE__) );
@@ -18,9 +19,13 @@ if ( version_compare( phpversion(), '5.2.4', '<' ) ) {
 
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     deactivate_plugins( SHIFT8_REMOTE_PLUGIN_SLUG . '/shift8-remote.php' );
-
-    if ( isset( $_GET['action'] ) && ( $_GET['action'] == 'activate' || $_GET['action'] == 'error_scrape' ) )
-        die( __( 'Shift8 Remote requires PHP version 5.2.4 or greater.', 'shift8-remote' ) );
+    add_action( 'admin_notices', function() {
+    	?>
+    <div class="error notice">
+        <p><?php _e( 'Shift8 Remote requires PHP >= 5.2.4 to function correctly. Deactivating plugin.', 'shift8_remote' ); ?></p>
+    </div>
+    <?php
+	});
 
 }
 

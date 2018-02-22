@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class SHIFT8_REMOTE_Core_Upgrader_Skin extends WP_Upgrader_Skin {
 
 	var $feedback;

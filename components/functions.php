@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Encryption key generation
 function shift8_remote_generate_api_key() {

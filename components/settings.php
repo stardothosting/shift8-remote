@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // create custom plugin settings menu
 add_action('admin_menu', 'shift8_remote_create_menu');

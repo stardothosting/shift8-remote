@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class SHIFT8_REMOTE_API_Request {
 
@@ -80,10 +81,6 @@ if ( class_exists( 'shift8_remote_Log' ) )
 if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG )
 	error_reporting( 0 );
 
-// Temp hack so our requests to verify file size are signed.
-global $shift8_remote_noauth_nonce;
-$shift8_remote_noauth_nonce = wp_create_nonce( 'shift8_remote_calculate_backup_size' );
-
 // Log in as admin
 $users_query = new WP_User_Query( array(
     'role' => 'administrator',
@@ -117,7 +114,7 @@ foreach( SHIFT8_REMOTE_API_Request::get_actions() as $action ) {
 		// TODO should be dynamic
 		case 'get_plugin_version' :
 
-			$actions[$action] = '1.1';
+			$actions[$action] = '1.0';
 
 		break;
 
@@ -259,7 +256,6 @@ foreach( SHIFT8_REMOTE_API_Request::get_actions() as $action ) {
 				'site_url'	   => get_site_url(),
 				'home_url'	   => get_home_url(),
 				'admin_url'	   => get_admin_url(),
-				'backups'	   => function_exists( '_shift8_remote_get_backups_info' ) ? _shift8_remote_get_backups_info() : array(),
 				'web_host'     => _shift8_remote_integration_get_web_host(),
 				'summary'      => _shift8_remote_get_content_summary(),
 			);

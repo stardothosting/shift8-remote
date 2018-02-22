@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class SHIFT8_REMOTE_Theme_Upgrader_Skin extends Theme_Installer_Skin {
 

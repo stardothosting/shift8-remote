@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Register admin scripts for custom fields
 function load_shift8_remote_wp_admin_style() {
