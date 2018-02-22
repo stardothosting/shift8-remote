@@ -50,7 +50,7 @@ function shift8_remote_settings_page() {
     <tr valign="top">
     <td><input size="64" id="shift8-remote-api-key" name="shift8_remote_api_key" value="<?php echo $encryption_key; ?>" type="hidden"/>
     Shift8 Remote API Key : <span id="shift8-api-key-display"><?php echo $encryption_key; ?></span></td>
-    <td><button id="shift8-remote-api-button">Re-generate Encryption Key</button></td>
+    <td><a id="shift8-remote-api-button" href="<?php echo wp_nonce_url( admin_url('admin-ajax.php?action=shift8_remote_ajax_process_request'), 'shift8-remote-process'); ?>"><button>Re-generate Encryption Key</button></a></td>
 	</tr>
 	</table>
     <?php submit_button(); ?>

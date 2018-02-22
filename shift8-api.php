@@ -7,19 +7,18 @@ class SHIFT8_REMOTE_API_Request {
 
 	static function verify_request() {
 
+		$sanitized_input = shift8_remote_sanitize($_POST);
+
 		// Check the API Key
 		if ( ! shift8_remote_get_api_keys() ) {
 
 			echo json_encode( 'blank-api-key' );
 			exit;
 
-		} elseif ( isset( $_POST['shift8_remote_verify_key'] ) ) {
+		} elseif ( isset( $sanitized_input['shift8_remote_verify_key'] ) ) {
 
-			$verify = $_POST['shift8_remote_verify_key'];
+			$verify = $sanitized_input['shift8_remote_verify_key'];
 			$api_key = shift8_remote_get_api_keys();
-
-			//$hash = self::generate_hashes( $_POST );
-			//unset( $_POST['shift8_remote_verify_key'] );
 
 			//if ( ! in_array( $verify, $hash, true ) ) {
 			if ( $verify != $api_key ) {
@@ -32,9 +31,8 @@ class SHIFT8_REMOTE_API_Request {
 			//	exit;
 			//=}
 
-
-			self::$actions = $_POST['actions'];
-			self::$args = $_POST;
+			self::$actions = $sanitized_input['actions'];
+			self::$args = $sanitized_input;
 
 
 		} else {

@@ -2,25 +2,24 @@
 
 // Encryption key generation
 function shift8_remote_generate_api_key() {
-    $cstrong = false;
-    $encryption_key = bin2hex(openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'), $cstrong));
+    //$cstrong = false;
+    $encryption_key = bin2hex(random_bytes(32));
+    /*$encryption_key = bin2hex(openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'), $cstrong));
     // Fallback if no openssl
     if (!$cstrong) {
-        $encryption_key = bin2hex(random_bytes(32));
-    }
+        $encryption_key = bin2hex(random_bytes(64));
+    }*/
     return $encryption_key;
 }
 
 // Callback for key regeneration
 function shift8_remote_ajax_process_request() {
-    // first check if data is being sent and that it is the data we want
-    $check_nonce = check_ajax_referer( 'shift8_remote_response_nonce', 'nonce');
-    if ( $check_nonce == true) {
+    if (wp_verify_nonce($_GET['_wpnonce'], 'shift8-remote-process') && $_GET['action'] == 'shift8_remote_response') {
         $new_encryption_key = shift8_remote_generate_api_key();
         echo $new_encryption_key;
         die();
     } else {
-        wp_send_json_error( array( 'error' => $custom_error ) );
+        die();
     }
 }
 add_action('wp_ajax_shift8_remote_response', 'shift8_remote_ajax_process_request');
@@ -31,7 +30,8 @@ add_action('wp_ajax_shift8_remote_response', 'shift8_remote_ajax_process_request
  * @return null
  */
 function shift8_remote_catch_api_call() {
-    if ( empty( $_POST['shift8_remote_verify_key'] ) )
+    $sanitized_input = shift8_remote_sanitize($_POST);
+    if ( empty( $sanitized_input['shift8_remote_verify_key'] ) )
         return;
 
     require_once( SHIFT8_REMOTE_PLUGIN_PATH . '/components/plugins.php' );
@@ -110,15 +110,17 @@ function _shift8_remote_check_filesystem_access() {
 }
 
 function _shift8_remote_set_filesystem_credentials( $credentials ) {
-
-    if ( empty( $_POST['filesystem_details'] ) )
+    // Sanitize this particular POST if supplied
+    $sanitized_filesystem_details = shift8_remote_sanitize($_POST['filesystem_details']);
+    
+    if ( empty( $sanitized_filesystem_details ) )
         return $credentials;
 
     $_credentials = array(
-        'username' => $_POST['filesystem_details']['credentials']['username'],
-        'password' => $_POST['filesystem_details']['credentials']['password'],
-        'hostname' => $_POST['filesystem_details']['credentials']['hostname'],
-        'connection_type' => $_POST['filesystem_details']['method']
+        'username' => $sanitized_filesystem_details['credentials']['username'],
+        'password' => $sanitized_filesystem_details['credentials']['password'],
+        'hostname' => $sanitized_filesystem_details['credentials']['hostname'],
+        'connection_type' => $sanitized_filesystem_details['method']
     );
 
     // check whether the credentials can be used
@@ -169,4 +171,17 @@ function _shift8_remote_get_content_summary() {
     );
 
     return $content_summary;
+}
+
+/**
+ * Return an array of sanitized input (which should be an array as well)
+ *
+ * @return array
+ */
+function shift8_remote_sanitize( $arr ){
+    $result = array();
+    foreach ($arr as $key => $val){
+        $result[$key] = (is_array($val) ? shift8_remote_sanitize($val) : sanitize_text_field($val));
+    }
+    return $result;
 }
