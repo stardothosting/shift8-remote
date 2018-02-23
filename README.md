@@ -1,7 +1,4 @@
 # Shift8 Remote Management
-* Contributors: shift8
-* Donate link: https://www.shift8web.ca
-* Tags: api, management, wordpress, wordpress automation, manage wordpress, staging, wordpress deploy, wordpress build, build, deployment, deploy, manage multiple, multiple wordpress, wordpress api, api managements
 * Requires at least: 3.0.1
 * Tested up to: 4.9
 * Stable tag: 1.00

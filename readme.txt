@@ -1,5 +1,5 @@
 === Shift8 Remote Management ===
-* Contributors: shift8
+* Contributors: shift8, jeramynirodha, bmett, humanmade, willmot, joehoyle, danielbachhuber, mattheu, pauldewouters, cuvelier, tcrsavage
 * Donate link: https://www.shift8web.ca
 * Tags: api, management, wordpress, wordpress automation, manage wordpress, staging, wordpress deploy, wordpress build, build, deployment, deploy, manage multiple, multiple wordpress, wordpress api, api managements
 * Requires at least: 3.0.1
