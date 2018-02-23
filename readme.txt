@@ -20,46 +20,46 @@ Future versions of this plugins may interact with a web service hosted and manag
 
 Find an overview of the API commands that can be executed through this plugin. You can execute these commands by creating your own web application to interface with this plugin, or create a quick python script (like the example script provided here in the bin folder).
 
-=get_plugin_version=
+= get_plugin_version =
 This will provide the current version of the plugin
 
-=get_filesystem_method=
+= get_filesystem_method =
 This will provide the currently defined filesystem method used for modifying files in the Wordpress installation
 
-=get_supported_filesystem_methods=
+= get_supported_filesystem_methods =
 This will provide a list of supported filesystem methods currently available for the Wordpress installation
 
-=get_wp_version=
+= get_wp_version =
 This will return the currently running Wordpress version
 
-=get_constants=
+= get_constants =
 This will return any defined constants
 
-=upgrade_core=
+= upgrade_core =
 This will initiate a Wordpress core upgrade to the latest stable version
 
-=get_plugins=
+= get_plugins =
 This will return a list of currently installed Wordpress plugins
 
-=update_plugin / upgrade_plugin=
+= update_plugin / upgrade_plugin =
 This will initiate a plugin update with the plugin to update specified as an additional argument
 
-=validate_plugin / install_plugin / activate_plugin / deactivate_plugin / uninstall_plugin=
+= validate_plugin / install_plugin / activate_plugin / deactivate_plugin / uninstall_plugin =
 This will validate / install / activate / deactivate or uninstall a plugin with the additional argument specified being the specific plugin to act on.
 
-=get_themes=
+= get_themes =
 This will retun the currently installed themes
 
-=install_theme / activate_theme / update_theme / upgrade_theme / delete_theme=
+= install_theme / activate_theme / update_theme / upgrade_theme / delete_theme =
 This will install / activate / update / upgrade or delete a specific theme with the additional argument given specifying which theme.
 
-=get_site_info=
+= get_site_info =
 This will return the site url, home url, admin url, currently detected web host and site summary.
 
-=get_option=
+= get_option =
 This will return the value of a specific administrative option with the additional argument given specifying which option value to return
 
-=update_option / delete_option=
+= update_option / delete_option =
 This will update or delete a specific value for an administrative option with the additional argument given specifying which option value to update
 
 
