@@ -86,8 +86,7 @@ function _shift8_remote_upgrade_core()  {
 
     global $wp_current_db_version, $wp_db_version;
 
-    // we have to include version.php so $wp_db_version
-    // will take the version of the updated version of wordpress
+    // Version.php is included so wp_db_version takes the version of the updated copy of WP
     require( ABSPATH . WPINC . '/version.php' );
 
     wp_upgrade();

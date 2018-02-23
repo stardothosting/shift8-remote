@@ -8,6 +8,7 @@ class SHIFT8_REMOTE_API_Request {
 
 	static function verify_request() {
 
+		// Sanitize all POST input to ensure variables are escaped. Uses the built-in Wordpress function sanitize_text_field
 		$sanitized_input = shift8_remote_sanitize($_POST);
 
 		// Check the API Key
@@ -21,17 +22,19 @@ class SHIFT8_REMOTE_API_Request {
 			$verify = $sanitized_input['shift8_remote_verify_key'];
 			$api_key = shift8_remote_get_api_keys();
 
-			//if ( ! in_array( $verify, $hash, true ) ) {
+			// Verify API key matches what is set in Wordpress options
 			if ( $verify != $api_key ) {
 				echo json_encode( 'bad-verify-key' );
 				exit;
 			}
 
-			//if ( (int) $_POST['timestamp'] > time() + 360 || (int) $_POST['timestamp'] < time() - 360 ) {
-			//	echo json_encode( 'bad-timstamp' );
-			//	exit;
-			//=}
+			// This ensures that stale requests dont accidentally get executed after the fact.
+			if ( (int) $sanitized_input['timestamp'] > time() + 360 || (int) $sanitized_input['timestamp'] < time() - 360 ) {
+				echo json_encode( 'bad-timstamp' );
+				exit;
+			}
 
+			// Iterate over actions and subsequent arguments
 			self::$actions = $sanitized_input['actions'];
 			self::$args = $sanitized_input;
 
@@ -41,20 +44,6 @@ class SHIFT8_REMOTE_API_Request {
 		}
 
 		return true;
-
-	}
-
-	static function generate_hashes( $vars ) {
-
-		$api_key = shift8_remote_get_api_keys();
-		if ( ! $api_key )
-			return array();
-
-		$hashes = array();
-		foreach( $api_key as $key ) {
-			$hashes[] = hash_hmac( 'sha256', serialize( $vars ), $key );
-		}
-		return $hashes;
 
 	}
 
@@ -73,11 +62,7 @@ class SHIFT8_REMOTE_API_Request {
 
 SHIFT8_REMOTE_API_Request::verify_request();
 
-// disable logging for anythign done in API requests
-if ( class_exists( 'shift8_remote_Log' ) )
-	SHIFT8_REMOTE_Log::get_instance()->disable_logging();
-
-// Disable error_reporting so they don't break the json request
+// Disable error_reporting if debug mode is enabled so that JSON response isn't broken
 if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG )
 	error_reporting( 0 );
 
@@ -105,13 +90,11 @@ include_once ( ABSPATH . 'wp-admin/includes/admin.php' );
 
 $actions = array();
 
+// Actual iteration over actions
 foreach( SHIFT8_REMOTE_API_Request::get_actions() as $action ) {
 
-	// TODO Instead should just fire actions which we hook into.
-	// TODO should namespace api methods?
 	switch( $action ) {
 
-		// TODO should be dynamic
 		case 'get_plugin_version' :
 
 			$actions[$action] = '1.0';

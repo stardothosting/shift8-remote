@@ -3,6 +3,12 @@
 import requests
 import json
 import sys
+from datetime import datetime
+import calendar
+
+# Get unix timestamp to pass as variable
+d = datetime.utcnow()
+unixtime = calendar.timegm(d.utctimetuple())
 
 ###########################
 # Check command arguments #
@@ -28,7 +34,7 @@ else:
 shift8_url = sys.argv[1] 
 payload = { 
         "shift8_remote_verify_key" : sys.argv[2],
-        "timestamp" : "1518465156",
+        "timestamp" : unixtime,
         "actions[0]" : sys.argv[3],
         argument : argument_value,
         }
