@@ -96,6 +96,18 @@ e.g.
 
 You should monitor the request log to see if it is able to hit the site. Also monitor the server logs of your Wordpress site to identify if any problems (i.e. curl) are happening.
 
+= What can I use to interact with this plugin to control my Wordpress site? =
+
+Literally any programming language that is capable of making web requests. In the "bin" folder of this plugin is an example Python script that can be used to submit queries via the plugin. Future iterations of this plugin may include additional examples for PHP, Ruby and Javascript frameworks.
+
+= Do you provide a service to interact with this plugin that I can sign up for? =
+
+Currently, not at this time. This is currently being developed and will be announced via a plugin update. The idea is to give the power to the end user to connect and manage themselves.
+
+= There are errors and I cannot connect! =
+
+Double check that your web host supports the latest version of PHP. Ideally you SHOULD be on PHP v7+. If you are lower than PHP 5.2 the plugin will deactivate itself.
+
 == Screenshots ==
 
 1. Admin area
