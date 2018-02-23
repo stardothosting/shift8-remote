@@ -6,10 +6,6 @@ import sys
 from datetime import datetime
 import calendar
 
-# Get unix timestamp to pass as variable
-d = datetime.utcnow()
-unixtime = calendar.timegm(d.utctimetuple())
-
 ###########################
 # Check command arguments #
 ###########################
@@ -19,6 +15,10 @@ if len(sys.argv) < 3 :
         print "Argument is optional only if needed"
         print "\nExample : shift8-remote.py http://shift8.local abc1234 update_plugin plugin Hello_Dolly/hello.php"
         sys.exit(0)
+
+# Get unix timestamp to pass as variable
+d = datetime.utcnow()
+unixtime = calendar.timegm(d.utctimetuple())
 
 try:
     sys.argv[4]
