@@ -16,7 +16,7 @@ define( 'SHIFT8_REMOTE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SHIFT8_REMOTE_MIN_PHPVER', '5.2.4');
 
 // Don't activate on anything less than PHP 5.2.4
-if ( version_compare( phpversion(), SHIFT8_RMOTE_MIN_PHPVER, '<' ) ) {
+if ( version_compare( phpversion(), SHIFT8_REMOTE_MIN_PHPVER, '<' ) ) {
 
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     deactivate_plugins( SHIFT8_REMOTE_PLUGIN_SLUG . '/shift8-remote.php' );
