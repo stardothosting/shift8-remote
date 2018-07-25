@@ -3,7 +3,7 @@
  * Plugin Name: Shift8 Remote Update
  * Plugin URI: https://github.com/stardothosting/shift8-remote
  * Description: Plugin that allows you to trigger a plugin or core Wordpress update via an API call
- * Version: 1.00
+ * Version: 1.01
  * Author: Shift8 Web 
  * Author URI: https://www.shift8web.ca
  * License: GPLv3

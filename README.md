@@ -1,7 +1,7 @@
 # Shift8 Remote Management
 * Requires at least: 3.0.1
 * Tested up to: 4.9
-* Stable tag: 1.00
+* Stable tag: 1.01
 * License: GPLv3
 * License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -113,3 +113,6 @@ Double check that your web host supports the latest version of PHP. Ideally you 
 
 ### 1.00
 * Stable version created
+
+### 1.01
+* Added new element for plugin file to be included in json array returned from plugin queries in order to properly update

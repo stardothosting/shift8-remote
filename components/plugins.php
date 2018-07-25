@@ -63,6 +63,7 @@ function _shift8_remote_get_plugins() {
             $plugins[$plugin_file]['latest_version'] = $current->response[$plugin_file]->new_version;
             $plugins[$plugin_file]['latest_package'] = $current->response[$plugin_file]->package;
             $plugins[$plugin_file]['slug'] = $current->response[$plugin_file]->slug;
+            $plugins[$plugin_file]['plugin_file'] = $plugin_file;
 
         } else {
 
