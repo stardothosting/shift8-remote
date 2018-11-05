@@ -101,6 +101,12 @@ foreach( SHIFT8_REMOTE_API_Request::get_actions() as $action ) {
 
 		break;
 
+        case 'is_active' :
+
+            $actions[$action] = 'yes';
+
+        break;
+
 		case 'get_filesystem_method' :
 			$actions[$action] = get_filesystem_method();
 
