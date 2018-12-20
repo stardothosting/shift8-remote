@@ -3,8 +3,8 @@
 * Donate link: https://www.shift8web.ca
 * Tags: api, management, wordpress, wordpress automation, manage wordpress, staging, wordpress deploy, wordpress build, build, deployment, deploy, manage multiple, multiple wordpress, wordpress api, api managements
 * Requires at least: 3.0.1
-* Tested up to: 4.9
-* Stable tag: 1.02
+* Tested up to: 5.0.2
+* Stable tag: 1.03
 * License: GPLv3
 * License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -122,3 +122,6 @@ Double check that your web host supports the latest version of PHP. Ideally you 
 
 = 1.02 =
 * Added API function to return is_active boolean for better error checking
+
+= 1.03 =
+* Wordpress 5 compatibility
